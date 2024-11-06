@@ -21,11 +21,13 @@ exports.handler = async (event) => {
     tasks.push(newTask);
     return {
       statusCode: 201,
+      headers,
       body: JSON.stringify(newTask),
     };
   }
   return {
     statusCode: 405,
+    headers,
     body: JSON.stringify({ message: 'Method Not Allowed' }),
   };
 }

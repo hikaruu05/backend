@@ -11,16 +11,19 @@ exports.handler = async (event) => {
       task.title = title;
       return {
         statusCode: 200,
+        headers,
         body: JSON.stringify(task),
       };
     }
     return {
       statusCode: 404,
+      headers,
       body: JSON.stringify({ message: 'Task Not Found' }),
     };
   }
   return {
     statusCode: 405,
+    headers,
     body: JSON.stringify({ message: 'Method Not Allowed' }),
   };
 };
